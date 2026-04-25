@@ -1,22 +1,22 @@
-# Climate Challenge Week 0
+## Interim Report: Tasks 1 & 2
 
-## Project Description
-This project focuses on analyzing climate data as part of the Week 0 challenge. The goal is to set up a professional data science environment, establish version control best practices, and lay the groundwork for upcoming data exploration and modeling tasks.
+### Task 1 Summary: Git & Environment Setup
+- **Repository Management:** Successfully initialized the `climate-challenge-week0` repository with a standardized folder structure.
+- **Branching Strategy:** Followed a feature-branching workflow (`task-1`, `eda-sudan`, `eda-tanzania`, etc.) to maintain a clean `main` branch and ensure structured collaboration.
+- **CI/CD:** Configured a GitHub Actions workflow (`unittests.yml`) to automatically verify dependencies and code integrity on every push.
+- **Environment:** Created a `requirements.txt` file and documented setup steps to ensure full reproducibility across different local environments.
 
-## Setup Steps
-1. Clone the repository to your local machine.
-2. Ensure you have Python 3.10+ installed.
-3. Create a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/Scripts/activate  # On Windows Git Bash
-   ```
-4. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+---
 
-## How to Run
-- Place your raw datasets inside the `data/` directory (these are ignored by git).
-- Open the Jupyter Notebooks located in the `notebooks/` directory to begin exploring the data.
-- Run Python scripts from the `scripts/` directory for automated tasks.
+### Task 2 Approach: Data Profiling & Cleaning
+- **Data Standardization:** Developed a "Gold Standard" EDA template in Jupyter Notebooks to ensure consistent analysis across multiple African regions, including **Ethiopia, Sudan, and Tanzania**.
+- **Cleaning Pipeline:**
+    - **Handling Sentinel Values:** Identified and converted NASA sentinel values (`-999`) to `NaN` to prevent statistical skewing.
+    - **Integrity Check:** Verified data consistency, achieving a 0% missing value report across the dataset (4,108 days per region).
+    - **Statistical Analysis:** Used **Z-score analysis** (threshold > 3) to identify extreme climatic outliers.
+- **Outlier Strategy:** Chose to **retain** extreme events (e.g., intense tropical rainfall peaks in Tanzania) rather than removing them, as these "climatic pulses" are vital for accurate resilience modeling.
+- **EDA & Visualization:**
+    - **Time-Series Analysis:** Generated monthly average temperature and rainfall plots with annotations for historical peaks and lows.
+    - **Correlation Studies:** Used heatmaps to identify strong inverse relationships between temperature ranges and humidity.
+    - **Distribution & Intensity:** Utilized Histograms (Log-Scale for rainfall) and Bubble Charts to visualize the link between thermal "sweet spots" and rainfall intensity.
+- **Export:** All processed data was exported as clean `.csv` files for downstream modeling, while keeping large data files excluded from version control via `.gitignore`.
