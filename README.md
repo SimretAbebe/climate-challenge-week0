@@ -1,3 +1,44 @@
+# Climate Challenge: Africa Climate Resilience (COP32)
+
+## Overview
+This project focuses on analyzing historical climate data (2015–2026) for five critical African regions: **Ethiopia, Nigeria, Kenya, Sudan, and Tanzania**. The goal is to provide a "Gold Standard" cleaned dataset and localized exploratory insights to support **COP32 Resilience Planning**.
+
+## Project Architecture
+The repository is designed for modularity and professional data engineering workflows:
+
+```text
+climate-challenge-week0/
+├── .github/workflows/         # CI/CD Pipelines
+├── data/                      # Local data storage (Git-ignored)
+├── notebooks/                 # Standardized EDA for 5 Regions
+├── src/                       # Modular logic & functions
+├── scripts/                   # Automation scripts
+├── tests/                     # Quality assurance tests
+└── requirements.txt           # Dependency management
+```
+
+## Reproducibility Guide
+Follow these steps to set up the development environment on your local machine:
+
+**1. Clone the Repository**
+```bash
+git clone https://github.com/SimretAbebe/climate-challenge-week0.git
+cd climate-challenge-week0
+```
+
+**2. Initialize Virtual Environment**
+```bash
+python -m venv venv
+# Windows: venv\Scripts\activate | macOS/Linux: source venv/bin/activate
+```
+
+**3. Install Dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+---
+
 ## Interim Report: Tasks 1 & 2
 
 ### Task 1 Summary: Git & Environment Setup
@@ -19,4 +60,4 @@
     - **Time-Series Analysis:** Generated monthly average temperature and rainfall plots with annotations for historical peaks and lows.
     - **Correlation Studies:** Used heatmaps to identify strong inverse relationships between temperature ranges and humidity.
     - **Distribution & Intensity:** Utilized Histograms (Log-Scale for rainfall) and Bubble Charts to visualize the link between thermal "sweet spots" and rainfall intensity.
-- **Export:** All processed data was exported as clean `.csv` files for downstream modeling, while keeping large data files excluded from version control via `.gitignore`.
+- **Export:** All processed data was exported as clean `.csv` files for downstream modeling, while keeping large data files excluded from version control via `.gitignore`.
