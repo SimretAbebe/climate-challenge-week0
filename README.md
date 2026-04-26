@@ -60,4 +60,17 @@ pip install -r requirements.txt
     - **Time-Series Analysis:** Generated monthly average temperature and rainfall plots with annotations for historical peaks and lows.
     - **Correlation Studies:** Used heatmaps to identify strong inverse relationships between temperature ranges and humidity.
     - **Distribution & Intensity:** Utilized Histograms (Log-Scale for rainfall) and Bubble Charts to visualize the link between thermal "sweet spots" and rainfall intensity.
-- **Export:** All processed data was exported as clean `.csv` files for downstream modeling, while keeping large data files excluded from version control via `.gitignore`.
+- **Export:** All processed data was exported as clean `.csv` files for downstream modeling, while keeping large data files excluded from version control via `.gitignore`.
+
+---
+
+## **Data Governance & Dictionary**
+To ensure transparency and reproducibility, all data follows a strict naming and storage convention:
+
+| Data Type | Location | Naming Convention |
+| :--- | :--- | :--- |
+| **Raw Data** | `/data/raw/` | `NASA_POWER_[Country]_Yearly.csv` |
+| **Processed Data** | `/data/processed/` | `[country]_clean.csv` |
+
+**Naming Convention:** Files are prefixed with the data source (**NASA_POWER**) or suffixed with the status (**_clean**) to ensure compatibility with automated ingestion and modeling scripts.
+
