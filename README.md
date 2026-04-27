@@ -9,6 +9,7 @@ The repository is designed for modularity and professional data engineering work
 ```text
 climate-challenge-week0/
 ├── .github/workflows/         # CI/CD Pipelines
+├── app/                       # Streamlit interactive dashboard
 ├── data/                      # Local data storage (Git-ignored)
 ├── notebooks/                 # Standardized EDA for 5 Regions
 ├── src/                       # Modular logic & functions
@@ -63,6 +64,14 @@ pip install -r requirements.txt
 - **Export:** All processed data was exported as clean `.csv` files for downstream modeling, while keeping large data files excluded from version control via `.gitignore`.
 
 ---
+### Task 3 Approach: Cross-Country Climate Comparison
+- **Modular Codebase:** Refactored individual region notebooks to use centralized data cleaning logic located in `src/data_utils.py`, improving maintainability and ensuring DRY (Don't Repeat Yourself) principles.
+- **Statistical Significance:** Conducted a One-way ANOVA test on temperature (T2M) across all 5 countries, yielding a *p*-value < 0.05. This statistically proved significant regional climatic disparities.
+- **Extreme Event Metrics:** Aggregated the "Gold Standard" datasets to calculate the frequency of extreme heat days ($T_{max} > 35^\circ C$) and Maximum Consecutive Dry Days.
+- **COP32 Ranking:** Developed a Climate Vulnerability Ranking based on multi-country aggregated data, supporting policy decisions with hard scientific observations.
+- **Git Governance:** Utilized a clean "Paper Trail" by creating dedicated branches, opening documented Pull Requests with explicit evidence, and merging them cleanly into `main` based on reviewer feedback.
+
+---
 
 ## **Data Governance & Dictionary**
 To ensure transparency and reproducibility, all data follows a strict naming and storage convention:
@@ -73,4 +82,20 @@ To ensure transparency and reproducibility, all data follows a strict naming and
 | **Processed Data** | `/data/processed/` | `[country]_clean.csv` |
 
 **Naming Convention:** Files are prefixed with the data source (**NASA_POWER**) or suffixed with the status (**_clean**) to ensure compatibility with automated ingestion and modeling scripts.
-
+
+---
+
+## Bonus Phase
+
+### Bonus Task: Interactive Streamlit Dashboard
+- **Dynamic Analysis:** Built an interactive web application using **Streamlit** to dynamically explore temperature trends and precipitation distributions across the 5 African regions.
+- **Custom Styling:** The dashboard features a premium dark-mode UI with customized KPI metric cards and exact style-matching for scientific charts (using the *viridis* palette) derived from the Jupyter notebooks.
+- **Data Pipeline:** Implemented a robust data loading utility (`app/utils.py`) to seamlessly pull and aggregate processed CSVs from the `data/processed/` directory.
+
+#### **How to Run the Dashboard Locally:**
+1. Ensure your virtual environment is active and dependencies are installed.
+2. Run the Streamlit application:
+```bash
+streamlit run app/main.py
+```
+
